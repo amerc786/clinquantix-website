@@ -258,7 +258,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     var c=document.createElement('form');c.id='cqx-careers';c.setAttribute('enctype','multipart/form-data');c.setAttribute('aria-label','Career application');c.style.display='none';
     c.innerHTML=''
       +'<p style="font-size:18px;font-weight:700;letter-spacing:-.01em">Join the ClinQuantix team</p>'
-      +'<p style="margin-top:6px;font-size:13px;color:rgba(245,240,232,.6)">Send your details and CV. Fields marked * are required.</p>'
+      +'<p style="margin-top:6px;font-size:13px;color:rgba(245,240,232,.6)">Send your details and a link to your CV. Fields marked * are required.</p>'
       +'<div role="status" aria-live="polite" id="cqx-cstatus" style="margin-top:16px"></div>'
       +'<div style="margin-top:18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px">'
       +'<label style="'+LB+'">Full name *<input name="name" type="text" autocomplete="name" required style="'+IN+'"></label>'
@@ -268,10 +268,10 @@ document.addEventListener('DOMContentLoaded', async function() {
       +'<label style="'+LB+'">LinkedIn / portfolio<input name="link" type="url" placeholder="https://" style="'+IN+'"></label>'
       +'<label style="'+LB+'">Earliest availability<input name="availability" type="text" placeholder="e.g. immediate, 1 month" style="'+IN+'"></label>'
       +'</div>'
-      +'<label style="'+LB+';margin-top:14px">CV / r&eacute;sum&eacute; * (PDF or Word, max 8MB)<input name="cv" type="file" accept=".pdf,.doc,.docx,application/pdf" required style="'+IN+';padding:9px 11px;font-size:13px"></label>'
+      +'<label style="'+LB+';margin-top:14px">Link to your CV / r&eacute;sum&eacute; * <span style="font-weight:400;color:rgba(245,240,232,.55)">(Google Drive, Dropbox, OneDrive or LinkedIn)</span><input name="cv_link" type="url" placeholder="https://…" required style="'+IN+'"></label>'
       +'<label style="'+LB+';margin-top:14px">Cover note<textarea name="message" rows="3" style="'+IN+';resize:vertical"></textarea></label>'
       +'<label style="margin-top:14px;display:flex;align-items:flex-start;gap:10px;font-size:13px;line-height:1.5;color:rgba(245,240,232,.78);font-weight:400"><input type="checkbox" name="consent" required style="margin-top:3px;accent-color:#E99B47;width:16px;height:16px;flex:none"><span>I consent to ClinQuantix processing my application and CV in line with its privacy notice. *</span></label>'
-      +'<input type="hidden" name="form-name" value="careers-application"><p hidden><input name="bot-field"></p>'
+      +'<input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">'
       +'<button type="submit" data-cta style="margin-top:20px;width:100%;display:inline-flex;align-items:center;justify-content:center;gap:10px;background:#E99B47;color:#0D0D0D;padding:16px;border-radius:44px;font-weight:700;font-size:16px;border:none;cursor:pointer">Send application <span>&#8594;</span></button>';
     card.appendChild(c);
     function setStatus(kind,msg){var s=document.getElementById('cqx-cstatus');if(!s)return;var col=kind==='ok'?['rgba(95,168,106,.16)','#a6dcad','rgba(95,168,106,.4)']:(kind==='err'?['rgba(229,115,115,.14)','#f3b4b4','rgba(229,115,115,.4)']:['rgba(233,155,71,.14)','#EBC991','rgba(233,155,71,.4)']);s.innerHTML='<p style="padding:13px 16px;border-radius:10px;font-size:13.5px;line-height:1.5;background:'+col[0]+';color:'+col[1]+';border:1px solid '+col[2]+'">'+msg+'</p>';}
